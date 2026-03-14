@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-oatmeal: #F5F2ED;
+  --color-linen: #FAF9F6;
+  --color-warm-blue: #A5B4C4;
+  --color-warm-yellow: #FDF5E6;
+  --color-ink-gray: #4A4A4A;
+  --color-stitch: rgba(74, 74, 74, 0.15);
+  
+  --font-sans: "Inter", "Source Han Sans CN", "思源黑体", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-oatmeal text-ink-gray font-sans;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+}
+
+@utility stitch-border {
+  @apply border border-dashed border-stitch;
+}
+
+@utility fabric-card {
+  @apply bg-white rounded-2xl shadow-sm transition-all duration-300;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+@utility btn-fabric {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200 active:translate-y-px;
+  @apply border border-dashed border-stitch bg-warm-yellow hover:brightness-105;
+}
